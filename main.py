@@ -1,8 +1,9 @@
 import sys
+
 from stats import (
-    get_num_words,
     chars_dict_to_sorted_list,
     get_chars_dict,
+    get_num_words,
 )
 
 
@@ -30,13 +31,12 @@ def print_report(book_path, num_words, chars_sorted_list):
     print("----------- Word Count ----------")
     print(f"Found {num_words} total words")
     print("--------- Character Count -------")
-    for item in chars_sorted_list:
-        if not item["char"].isalpha():
+    for char, counter in chars_sorted_list:
+        if not char.isalpha():
             continue
-        print(f"{item['char']}: {item['num']}")
+        print(f"{char}: {counter}")
 
     print("============= END ===============")
 
 
 main()
-

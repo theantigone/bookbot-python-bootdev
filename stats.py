@@ -14,14 +14,21 @@ def get_chars_dict(text):
     return chars
 
 
-def sort_on(d):
-    return d["num"]
+# def sort_on(d):
+#    return d["num"]
+def sort_on(char_count: tuple[str, int]) -> int:
+    return char_count[1]
 
 
-def chars_dict_to_sorted_list(num_chars_dict):
-    sorted_list = []
-    for ch in num_chars_dict:
-        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
-    sorted_list.sort(reverse=True, key=sort_on)
-    return sorted_list
-
+# def chars_dict_to_sorted_list(num_chars_dict):
+#    sorted_list = []
+#    for ch in num_chars_dict:
+#        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+#    sorted_list.sort(reverse=True, key=sort_on)
+#    return sorted_list
+def chars_dict_to_sorted_list(num_chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    chars_list = []
+    for char in num_chars_dict:
+        count = num_chars_dict[char]
+        chars_list.append((char, count))
+    return sorted(chars_list, reverse=True, key=sort_on)
